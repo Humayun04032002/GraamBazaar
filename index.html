@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গ্রামবাজার - আসছে খুব শীঘ্রই</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dcfce7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            width: 100%;
+            max-width: 1100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        .active-icon {
+            animation: pulse-glow 2s infinite;
+            color: #059669 !important;
+            filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+        }
+
+        /* Success Message Overlay */
+        #success-msg {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 50;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container flex flex-col">
+        <div id="success-msg" class="animate-in fade-in duration-500">
+            <div class="bg-green-100 p-4 rounded-full mb-4">
+                <i data-lucide="check-circle" class="w-16 h-16 text-green-600"></i>
+            </div>
+            <h3 class="text-3xl font-bold text-slate-800 mb-2">অভিনন্দন!</h3>
+            <p class="text-slate-600 text-lg">আপনার ইমেইলটি সফলভাবে তালিকায় যোগ করা হয়েছে।</p>
+            <button onclick="location.reload()" class="mt-6 text-green-700 font-bold underline">ফিরে যান</button>
+        </div>
+
+        <nav class="p-6 flex justify-between items-center w-full border-b border-white/20">
+            <div class="flex items-center gap-2">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-800">Graam<span class="text-green-600">বাজার</span></h1>
+            </div>
+            <div class="hidden md:flex gap-6 text-slate-700 font-medium">
+                <span>বিশুদ্ধতা</span>
+                <span>সততা</span>
+                <span>সেবা</span>
+            </div>
+        </nav>
+
+        <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 text-center">
+            <div class="mb-6 px-5 py-2 bg-white/50 text-green-800 rounded-full text-sm md:text-base font-semibold tracking-wide border border-white/40 shadow-sm uppercase">
+                মাঠের তাজা পণ্য এখন আপনার হাতের মুঠোয়
+            </div>
+
+            <h2 class="text-4xl md:text-6xl xl:text-7xl font-bold text-slate-800 mb-6 leading-tight">
+                আমরা আসছি আপনার <br>
+                <span class="text-gradient">শহরে,নতুন কিছু করতে!</span>
+            </h2>
+
+            <p class="text-base md:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                খাঁটি পণ্য, গ্রাম বাংলার ঐতিহ্য আর আধুনিকতার ছোঁয়ায় গ্রামবাজার হতে যাচ্ছে আপনার বিশ্বস্ত অনলাইন বাজার। আমরা আসছি খুব শীঘ্রই!
+            </p>
+
+            <div class="w-full max-w-lg mb-12 shadow-lg rounded-2xl overflow-hidden flex bg-white/60 border border-white/40 p-1">
+                <input type="text" placeholder="গ্রামবাজারের জন্য অপেক্ষা করুন..." disabled class="flex-grow px-6 py-3 bg-transparent text-slate-500 outline-none">
+                <button class="bg-green-600 text-white px-8 py-3 rounded-xl text-lg font-bold">আসছে</button>
+            </div>
+
+            <section class="w-full max-w-3xl mx-auto px-4 mb-8">
+                <div class="flex items-center justify-between relative">
+                    <div class="flex flex-col items-center z-10 px-2">
+                        <div id="icon-farmer" class="text-slate-400">
+                            <i data-lucide="tractor" class="w-8 h-8 md:w-12 md:h-12"></i>
+                        </div>
+                        <span class="text-xs font-bold mt-2 text-slate-600 uppercase">কৃষক</span>
+                    </div>
+                    <div class="flex-grow mx-2 h-1 bg-white/40 rounded-full overflow-hidden">
+                        <div id="line-1" class="h-full w-0 bg-green-500 transition-all duration-[2000ms]"></div>
+                    </div>
+                    <div class="flex flex-col items-center z-10 px-2">
+                        <div id="icon-hub" class="text-slate-400">
+                            <i data-lucide="store" class="w-8 h-8 md:w-12 md:h-12"></i>
+                        </div>
+                        <span class="text-xs font-bold mt-2 text-slate-600 uppercase">গ্রামবাজার</span>
+                    </div>
+                    <div class="flex-grow mx-2 h-1 bg-white/40 rounded-full overflow-hidden">
+                        <div id="line-2" class="h-full w-0 bg-green-500 transition-all duration-[2000ms]"></div>
+                    </div>
+                    <div class="flex flex-col items-center z-10 px-2">
+                        <div id="icon-consumer" class="text-slate-400">
+                            <i data-lucide="shopping-bag" class="w-8 h-8 md:w-12 md:h-12"></i>
+                        </div>
+                        <span id="label-consumer" class="text-xs font-bold mt-2 text-slate-600 uppercase">গ্রাহক</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section class="py-10 bg-white/30 w-full border-t border-white/20">
+            <div class="max-w-4xl mx-auto text-center px-6">
+                <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-2 italic">"বিশুদ্ধতার খোঁজে, গ্রামবাজার আপনার পাশে"</h3>
+                <p class="text-slate-600 mb-6 text-sm md:text-base">আপনার ইমেইল দিয়ে রাখুন, আমরা শুরু করলেই আপনাকে জানিয়ে দিবো।</p>
+                
+                <form id="google-sheet-form" class="flex flex-col md:flex-row gap-3 justify-center">
+                    <input type="email" name="email" id="email-input" required placeholder="আপনার ইমেইল এড্রেস" 
+                           class="px-6 py-3 bg-white/80 border border-white/40 rounded-xl w-full md:w-80 outline-none text-slate-700">
+                    <button type="submit" id="submit-btn" class="bg-slate-800 text-white px-8 py-3 rounded-xl font-bold hover:bg-slate-900 transition transform hover:scale-105 shadow-md">
+                        সাবস্ক্রাইব
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="p-6 text-center text-slate-500 text-sm border-t border-white/20">
+            <p>&copy;সরাসরি কৃষক থেকে আপনার হাতের মুঠোয়!</p>
+            <p>বগুড়া, বাংলাদেশ | Email: info@graambazaar.com</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxO7Z2In__CHrUecv5r8JthXRhmoBRtzKVUzvW1ipK7brrRxETGaWzZKbPkYSh3_tad/exec'; 
+        const form = document.getElementById('google-sheet-form');
+        const btn = document.getElementById('submit-btn');
+        const successOverlay = document.getElementById('success-msg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerText = 'অপেক্ষা করুন...';
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form),
+                mode: 'no-cors' 
+            })
+            .then(() => {
+                // রিডাইরেক্ট না করে সরাসরি সাকসেস মেসেজ দেখাচ্ছি
+                successOverlay.style.display = 'flex';
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('দুঃখিত! আবার চেষ্টা করুন।');
+                btn.disabled = false;
+                btn.innerText = 'সাবস্ক্রাইব';
+            });
+        });
+
+        // Animation Logic
+        const step1 = document.getElementById('icon-farmer');
+        const line1 = document.getElementById('line-1');
+        const step2 = document.getElementById('icon-hub');
+        const line2 = document.getElementById('line-2');
+        const step3 = document.getElementById('icon-consumer');
+
+        function runAnimation() {
+            step1.classList.remove('active-icon');
+            step2.classList.remove('active-icon');
+            step3.classList.remove('active-icon');
+            line1.style.width = '0%';
+            line2.style.width = '0%';
+            step3.innerHTML = '<i data-lucide="shopping-bag" class="w-8 h-8 md:w-12 md:h-12"></i>';
+            lucide.createIcons();
+
+            setTimeout(() => {
+                step1.classList.add('active-icon');
+                setTimeout(() => {
+                    line1.style.width = '100%';
+                    setTimeout(() => {
+                        step2.classList.add('active-icon');
+                        setTimeout(() => {
+                            line2.style.width = '100%';
+                            setTimeout(() => {
+                                step3.classList.add('active-icon');
+                                step3.innerHTML = '<i data-lucide="check-circle-2" class="w-8 h-8 md:w-12 md:h-12 text-green-600"></i>';
+                                lucide.createIcons();
+                            }, 1000);
+                        }, 1000);
+                    }, 1500);
+                }, 1000);
+            }, 500);
+        }
+
+        runAnimation();
+        setInterval(runAnimation, 9000);
+    </script>
+</body>
+</html>
